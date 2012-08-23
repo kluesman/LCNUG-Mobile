@@ -1,8 +1,5 @@
  function loadEvents()
  {	
-	   document.getElementById("myDiv").innerHTML="";
-	   document.getElementById("myDiv").style.visibility = "hidden";
-	   document.getElementById("eventList").style.visibility = "visible";
 	   var storage = window.localStorage;
 	   var txt="";
 	   var feedString = storage.feedString;
@@ -15,5 +12,5 @@
 	      }
 	      document.getElementById("myEvents").innerHTML=txt;
 	   }
-    $("#myEvents").listview("refresh");
+	   $("myEvents").listview("refresh");
  };
