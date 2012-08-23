@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Lake County .Net Users' Group</title>
+		<link rel="stylesheet" type="text/css" href="navbuttons.css" media="screen" />
+        <link rel="stylesheet"  href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css" />
+</head>
+<body > 
+
+    <div data-role="page" id="UpNext">
+
+    <div data-role="header" data-fullscreen="true" data-position="fixed">
+		<h1>LCNUG</h1>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="javascript:loadXMLDoc();">Up Next</a></li>
+				<li><a href="javascript:loadEvents();">Events</a></li>
+				<li><a href="javascript:loadAbout();">About</a></li>
+			</ul>
+		</div>
+    </div><!-- /header -->
+
+
+    <div data-role="content" data-iscroll="enable">
+      <div id="myDiv"></div>
+	  <div  class="content-primary" id="eventList"><ul data-role="listview" data-theme="c" id="myEvents"  data-filter="true"></ul></div>
+    </div><!-- /content -->
+	<div data-role="footer" class="nav-glyphish-example" data-fullscreen="true"d data-position="fixed"> 
+            <div data-role="navbar" class="nav-glyphish-example"> 
+            <ul>
+                <li><a href="http://maps.google.com/maps?daddr=College%20of%20Lake%20County,%2019351%20West%20Washington%20Street,%20Grayslake,%20IL%2060030-1198" id="directions" data-icon="custom">Directions</a></li> 
+                <li><a href="map.html" id="map" data-icon="custom">Map</a></li> 
+                <li><a href="mailto:organizers@lcnug.org" id="contact" data-icon="custom">Contact</a></li> 
+                <li><a href="info.html" id="about" data-icon="custom">Info</a></li> 
+            </ul> 
+            </div> 
+        </div> 
+</div>
+        <script src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.js"></script>
+        <script src="./scripts/RSSFeed.js" type="text/javascript"></script>
+        <script src="./scripts/jQuery.xml2json.js" type="text/javascript"></script>
+        <script src="./scripts/Events.js" type="text/javascript"></script>
+        <script src="./scripts/About.js" type="text/javascript"></script>
+        <script src="cordova-2.0.0.js" type="text/javascript"></script>
+        <script>
+			$().ready(function () {
+  			loadXMLDoc();
+				});
+
+    	</script>
+</body>
+</html>
+
