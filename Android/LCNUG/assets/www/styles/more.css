@@ -1,0 +1,15 @@
+#direction	.km-custom {
+	  -webkit-mask-box-image: url("../images/directions.png");
+	  height: 30px;
+	  width: 30px;
+	}
+#contact	.km-custom {
+	  -webkit-mask-box-image: url("../images/contact.png");
+	  height: 30px;
+	  width: 30px;
+	}
+#info	.km-custom {
+	  -webkit-mask-box-image: url("../images/info.png");
+	  height: 30px;
+	  width: 30px;
+	}
