@@ -1,0 +1,15 @@
+#upnext	.km-custom {
+	  -webkit-mask-box-image: url("../images/upnext.png");
+	}
+#events	.km-custom {
+	  -webkit-mask-box-image: url("../images/calendar.png");
+	}
+#map	.km-custom {
+	  -webkit-mask-box-image: url("../images/campus.png");
+	}
+#about	.km-custom {
+	  -webkit-mask-box-image: url("../images/about.png");
+	}
+#more	.km-custom {
+	  -webkit-mask-box-image: url("../images/more.png");
+	}

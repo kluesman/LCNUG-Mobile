@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <link href="./styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="./styles/kendo.mobile.all.min.css" rel="stylesheet" />
+    <link href="./styles/navbuttons.css" rel="stylesheet" />
+    <link href="./styles/more.css" rel="stylesheet" />
+	
+</head>
+<body>
+   <div data-role="view" id="tabstrip-UpNext" data-title="Up Next" data-layout="mobile-tabstrip">
+		<center><image id="progBar" src="./images/Loading.gif"/></center>
+		<div id="UpNextInfo"></div>
+   </div>
+   <div data-role="view" id="tabstrip-Events" data-title="Events" data-layout="mobile-tabstrip">
+		<ul id="grouped-listview"></ul>
+   </div>
+   <div data-role="view" id="tabstrip-Map" data-title="Map" data-layout="mobile-tabstrip">
+		<img src="images/CampusMap.png" alt="some_text" width="100%" border=0 padding=0/>
+   </div>
+   <div data-role="view" id="tabstrip-About" data-title="About" data-layout="mobile-tabstrip">
+		<p>Lake County .Net User's Group normally meets from 7-9 PM on the second Thursday of the month at the College of Lake County in Grayslake, Illinois. 
+			Every month there is a different speaker presenting on various Microsoft technologies. 
+			November and December meetings are on different dates. 
+			The College of Lake County provides space for us in the Technology Building in room T326-328. Please register before each meeting.</p>
+   </div>
+   <div data-role="view" id="tabstrip-More" data-title="More" data-layout="mobile-tabstrip">
+		<ul data-role="listview">
+		  <li id='direction' data-icon="custom"><a href="http://maps.google.com/maps?daddr=College%20of%20Lake%20County,%2019351%20West%20modalviewWashington%20Street,%20Grayslake,%20IL%2060030-1198" data-rel="external" data-icon="custom">Directions To User Group</a></li>
+		  <li id='contact' data-icon="custom"><a href="mailto:organizers@lcnug.org" data-rel="external" class="details-link" data-role="listview-link" data-icon="custom">Contact Us</a></li>
+		  <li id='info' data-icon="custom"><a href="#tabstrip-infos" class="details-link"  data-role="listview-link" data-icon="custom">About LCNUG Application</a></li>
+		  <li></li>
+		</ul>
+   </div>
+   
+
+    <div data-title="LCNUG" data-role="view" id="tabstrip-eventDetails" data-transition="slide" data-layout="tabstrip-eventDetails" data-show="showDetailsView">
+        <header data-role="header">
+        <div data-role="navbar">
+            <a data-role="backbutton" data-align="left">Back</a>
+            <span data-role="view-title"></span>
+        </div>
+        </header>
+        <div data-role="content">
+        <p><div id="myEventDetail"></div></p>
+        </div>
+    </div>
+    <div data-title="LCNUG" data-role="view" id="tabstrip-infos" data-transition="slide" data-layout="tabstrip-infos">
+        <header data-role="header">
+        <div data-role="navbar">
+            <a data-role="backbutton" data-align="left">Back</a>
+            <span data-role="view-title"></span>
+        </div>
+        </header>
+        <div data-role="content">
+		<p>Lake County .Net User's Group normally meets from 7-9 PM on the second Thursday of the month at the College of Lake County in Grayslake, Illinois. 
+ 		Every month there is a different speaker presenting on various Microsoft technologies. November and December meetings are on different dates. 
+ 		The College of Lake County provides space for us in the Technology Building in room T326-328. Please register before each meeting.</p>
+        </div>
+    </div>
+	
+<div data-role="layout" data-id="mobile-tabstrip">
+    <header data-role="header">
+        <div data-role="navbar">
+            <!--<a class="nav-button" data-align="left" data-role="backbutton">Back</a>-->
+            <span data-role="view-title"></span>
+            <!--<a data-align="right" data-role="button" class="nav-button" href="#index">Index</a>-->
+        </div>
+    </header>
+    <div data-role="footer">
+        <div  data-role="tabstrip">
+            <a id="upnext" href="javascript:navigate('Up Next');" data-rel="external" data-icon="custom">Up Next</a>
+            <a id="events" href="javascript:navigate('Events');" data-rel="external" data-icon="custom">Events</a>
+            <a id="map" href="javascript:navigate('Map');" data-rel="external" data-icon="custom">Map</a>
+            <a id="about" href="javascript:navigate('About');" data-rel="external" data-icon="custom">About</a>
+            <a id="more" href="javascript:navigate('More');" data-rel="external" data-icon="custom">More</a>
+        </div>
+    </div>
+</div>
+
+
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/console.js"></script>
+    <script src="scripts/kendo.all.min.js"></script>
+	<script src="scripts/jQuery.xml2json.js"></script>
+	<script src="scripts/RSSFeed.js"></script>
+	<script src="scripts/navigation.js"></script>
+    <script src="scripts/Events.js"></script>
+
+<script>
+    var app = new kendo.mobile.Application(document.body);
+	$().ready(function () {
+	loadXMLDoc();
+		});
+		
+    function closeModalViewLogin() {
+        $("#modalview-Info").kendoMobileModalView("close");
+    }
+</script>
+</body>
+</html>
