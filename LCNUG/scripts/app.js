@@ -1,5 +1,11 @@
 
-    var newEvent;
+var storage;
+var jsonFeed;
+var jEvents;
+var sEventsModel;
+var newEvent;
+var currentEvent;
+
 (function (global) {
     
         app = global.app = global.app || {};
@@ -7,30 +13,26 @@
     document.addEventListener("deviceready", function () {
         app.application = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout" });
         app.application.skin('Flat');
+        window.location.href="#tabstrip-upnext"; 
         loadXMLDoc();
     }, false);
     
-    
-    var storage;
-    var jsonFeed;
-    var jEvents;
-	var sEventsModel;
-    
-    var currentEvent;
+
     function loadXMLDoc()
     {
 
         currentEvent="";
         newEvent=false;
-        //document.getElementById('progBar').style.visibility = 'visible'; 
         app.application.showLoading();
         storage = window.localStorage;
-        today=new Date();
-        var one_hour=1000*60*60;
-        var lastPulleds = storage.getItem("lastPulled");
-        var lastPulled = lastPulleds==null? today.getTime(): parseInt(lastPulleds);
-        now = today.getTime();
-        var hoursPassed = (now-lastPulled) / one_hour;
+        
+        var lastPulled = storage["SessionsLastPulled"];
+        lastPulled = lastPulled==null? moment("2013-11-02", "YYYY-MM-DD").format("YYYY-MM-DD"): lastPulled;
+        
+        var now = moment();
+        var lastPulledMoment = moment(lastPulled);
+        var DaysPassed = now.diff(lastPulledMoment,'days');
+        
         var xmlhttp;
         if (window.XMLHttpRequest)
         {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -57,10 +59,10 @@
                 }
                 app.application.hideLoading();
                 storage.setItem("feedString", feedString);
-                storage.setItem("lastPulled", today.getTime().toString());
+                storage["SessionsLastPulled"] = moment().format("YYYY-MM-DD").toString();
             }
         }
-        if (navigator.onLine && (hoursPassed >= 4 || hoursPassed ==0)) { 
+        if (navigator.onLine && (DaysPassed >= 1)) { 
             xmlhttp.open("GET","http://www.lcnug.org/news.rss",true);
             xmlhttp.send(null); 
         } 

@@ -30,7 +30,7 @@
         <!--Home-->
         <div id="tabstrip-upnext" 
              data-role="view"  
-             data-title="Up Next">
+             data-title="Up Next" data-show="CheckLoading">
 
             <div class="view-content">
                 <div class="view-scroller">
@@ -42,7 +42,7 @@
         <!--Login-->
         <div id="tabstrip-events" 
              data-role="view"  
-             data-title="Events">
+             data-title="Events" data-show="CheckLoading">
             <div class="view-content">
                 <center>
                     <div  data-role="listview" id="EventsList" data-bind="template: {name: 'EventsTemplate', foreach: Events}"></div>
